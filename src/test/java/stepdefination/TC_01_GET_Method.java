@@ -396,5 +396,30 @@ public class TC_01_GET_Method extends Utils_Class{
 					response();
 		
 	}
+	
+	@Then("Also check the response for code as {int}")
+	public void also_check_the_response_for_code_as(Integer int1) {
+		
+		code = json_convertor(create_new_user_positive_response, "code");
+		
+		actual_code = Integer.parseInt(code);
+		
+		assertEquals(actual_code, 201);
+		
+	}
+	
+	@When("User use the {string} for the http post method")
+	public void user_use_the_for_the_http_post_method(String string) {
+		
+		
+		
+	}
+
+	@Then("check the response status as {int} for negative scenario")
+	public void check_the_response_status_as_for_negative_scenario(Integer int1) {
+		
+		
+		
+	}
 
 }
