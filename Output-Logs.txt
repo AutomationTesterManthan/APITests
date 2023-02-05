@@ -1,23 +1,29 @@
-Request method:	GET
-Request URI:	https://gorest.co.in/public-api/users?gender=male&status=inactive
+Request method:	POST
+Request URI:	https://gorest.co.in/public-api/users
 Proxy:			<none>
 Request params:	<none>
-Query params:	gender=male
-				status=inactive
+Query params:	<none>
 Form params:	<none>
 Path params:	<none>
 Headers:		Accept=*/*
 				Content-Type=application/json
 Cookies:		<none>
 Multiparts:		<none>
-Body:			<none>
+Body:
+{
+    "name": "Gwen Tennyson",
+    "email": "tennyson.gwen@cartoonnetwork.com",
+    "gender": "female",
+    "status": "active"
+}
 HTTP/1.1 200 OK
-Date: Sun, 29 Jan 2023 17:59:29 GMT
+Date: Sun, 05 Feb 2023 13:04:38 GMT
 Content-Type: application/json; charset=utf-8
 Transfer-Encoding: chunked
 Connection: keep-alive
 Cache-Control: max-age=0, private, must-revalidate
-etag: W/"e6d7f52e0889cb26aebdcc66f9a81091"
+etag: W/"4afeb799c49ba18ff8ea249ecc94746a"
+location: https://gorest.co.in/public-api/users/274150
 referrer-policy: strict-origin-when-cross-origin
 vary: Origin
 x-content-type-options: nosniff
@@ -27,97 +33,25 @@ x-permitted-cross-domain-policies: none
 x-ratelimit-limit: 90
 x-ratelimit-remaining: 89
 x-ratelimit-reset: 1
-x-request-id: 09219e47-4604-43c0-bbfa-afaf3be88719
-x-runtime: 0.095423
+x-request-id: 8545f25b-e1a5-4951-930a-462224a33a4a
+x-runtime: 0.057892
 x-xss-protection: 0
 CF-Cache-Status: DYNAMIC
-Report-To: {"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=32R8GtwjEWcAjeTVOWOz5Zu3tC9o7w2f%2FsgWgf%2Fgy7suyYpaVu3rmxIyuPVWTUJoApJ91C5U8D%2FeEzRiYkF2qWrZeoSijCmDreU5%2F8Yp%2BxpUbH5%2B956jvyWcf%2Fm%2BQGk%3D"}],"group":"cf-nel","max_age":604800}
+Report-To: {"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=cUj64D0muCqzlGiFabJNg4p1xAxAq2M6uEyGaKLy3tYUJXepn6WxRZ0ebe49%2FCzhsEBq2LhhcttKPV6x6UBSU7cDZPiuFCbcH1MQ2U4GWdGxqyugfOvYXES5w1KQJ4Y%3D"}],"group":"cf-nel","max_age":604800}
 NEL: {"success_fraction":0,"report_to":"cf-nel","max_age":604800}
 Server: cloudflare
-CF-RAY: 7913dca88e7b6eef-BOM
+CF-RAY: 794bda620b1af313-BOM
 Content-Encoding: gzip
 alt-svc: h3=":443"; ma=86400, h3-29=":443"; ma=86400
 
 {
-    "code": 200,
-    "meta": {
-        "pagination": {
-            "total": 620,
-            "pages": 62,
-            "page": 1,
-            "limit": 10
-        }
-    },
-    "data": [
-        {
-            "id": 194131,
-            "name": "Trilokesh Saini",
-            "email": "saini_trilokesh@hand.co",
-            "gender": "male",
-            "status": "inactive"
-        },
-        {
-            "id": 193984,
-            "name": "Narinder Kakkar",
-            "email": "narinder_kakkar@lueilwitz.io",
-            "gender": "male",
-            "status": "inactive"
-        },
-        {
-            "id": 193934,
-            "name": "Amritambu Gupta",
-            "email": "amritambu_gupta@oberbrunner.biz",
-            "gender": "male",
-            "status": "inactive"
-        },
-        {
-            "id": 193928,
-            "name": "Fr. Amodini Dubashi",
-            "email": "fr_dubashi_amodini@tromp-bernhard.co",
-            "gender": "male",
-            "status": "inactive"
-        },
-        {
-            "id": 193927,
-            "name": "Chandran Talwar",
-            "email": "chandran_talwar@johnson.info",
-            "gender": "male",
-            "status": "inactive"
-        },
-        {
-            "id": 193924,
-            "name": "Sumitra Panicker II",
-            "email": "panicker_ii_sumitra@mcdermott-block.co",
-            "gender": "male",
-            "status": "inactive"
-        },
-        {
-            "id": 193907,
-            "name": "Rukmin Dhawan III",
-            "email": "dhawan_iii_rukmin@robel.co",
-            "gender": "male",
-            "status": "inactive"
-        },
-        {
-            "id": 193849,
-            "name": "Agniprava Mahajan",
-            "email": "mahajan_agniprava@haag.com",
-            "gender": "male",
-            "status": "inactive"
-        },
-        {
-            "id": 193848,
-            "name": "Chandramauli Asan DDS",
-            "email": "dds_asan_chandramauli@mann.io",
-            "gender": "male",
-            "status": "inactive"
-        },
-        {
-            "id": 193727,
-            "name": "Harinarayan Mishra MD",
-            "email": "harinarayan_md_mishra@boyer.io",
-            "gender": "male",
-            "status": "inactive"
-        }
-    ]
+    "code": 201,
+    "meta": null,
+    "data": {
+        "id": 274150,
+        "name": "Gwen Tennyson",
+        "email": "tennyson.gwen@cartoonnetwork.com",
+        "gender": "female",
+        "status": "active"
+    }
 }

@@ -7,7 +7,8 @@ public enum URI_Endpoints {
 	getSingleUser("/public-api/users"),
 	getIncorrectUser("/public-api/users"),
 	getUsersWithQueryParam_Gender("/public-api/users"),
-	getUsersWithMultipleQueryParam_GenderAndStatus("/public-api/users");
+	getUsersWithMultipleQueryParam_GenderAndStatus("/public-api/users"),
+	postCreateUser_Positive("/public/v2/users");
 	
 	private String endpoint;
 	

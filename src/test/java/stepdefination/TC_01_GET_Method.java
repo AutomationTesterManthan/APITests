@@ -8,6 +8,7 @@ import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+import utils.Test_Data;
 import utils.URI_Endpoints;
 import utils.Utils_Class;
 
@@ -19,8 +20,10 @@ import java.util.Scanner;
 public class TC_01_GET_Method extends Utils_Class{
 	
 	RequestSpecification request;
+	RequestSpecification request_body;
 	static URI_Endpoints Endpoint;
 	Scanner user_input =  new Scanner(System.in);
+	Test_Data data = new Test_Data();
 	Response response;
 	Response query_response;
 	Response gender_query_response;
@@ -33,6 +36,8 @@ public class TC_01_GET_Method extends Utils_Class{
 	Response get_users_with_gender;
 	Response muliple_query_param_response;
 	Response get_users_muliple_query_param;
+	Response post_response;
+	Response create_new_user_positive_response;
 	JsonPath js;
 	String code;
 	String gender;
@@ -356,5 +361,40 @@ public class TC_01_GET_Method extends Utils_Class{
 		
 	}
 
+	@Given("Give the payload for the post request")
+	public void give_the_payload_for_the_post_request() {
+		
+		request_body = request.
+					body(data.create_new_user_payload());
+		
+	}
+	
+	@When("Use the {string} for the post http method")
+	public void use_the_for_the_http_method(String endpoint) {
+		
+		if(endpoint.equalsIgnoreCase("postCreateUser_Positive")) {
+			
+			post_response = request_body.
+					when().
+						post(Endpoint.get_Endpoint());
+			
+		}else {
+			
+			System.out.println("No Match found!");
+			
+		}
+		
+	}
+	
+	@Then("Check the response status as {int}")
+	public void check_the_response_status_as(Integer int1) {
+		
+		create_new_user_positive_response = post_response.
+				then().
+					statusCode(200).
+					extract().
+					response();
+		
+	}
 
 }

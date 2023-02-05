@@ -10,9 +10,9 @@ import io.cucumber.junit.CucumberOptions;
 @CucumberOptions(features="src/test/java/feature", 
                  glue= {"stepdefination"},
                  plugin= {"pretty",
-                		 "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"})
+                		 "json:target/cucumber.json"})
 
-public class Runner_Class {
+public class Runner_Class{
 
 }
 
