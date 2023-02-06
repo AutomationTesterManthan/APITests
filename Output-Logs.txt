@@ -1,0 +1,61 @@
+Request method:	POST
+Request URI:	https://gorest.co.in/public-api/users
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+HTTP/1.1 200 OK
+Date: Mon, 06 Feb 2023 17:42:17 GMT
+Content-Type: application/json; charset=utf-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+Cache-Control: max-age=0, private, must-revalidate
+etag: W/"869492b4231672a37e2262d0785c1c26"
+referrer-policy: strict-origin-when-cross-origin
+vary: Origin
+x-content-type-options: nosniff
+x-download-options: noopen
+x-frame-options: SAMEORIGIN
+x-permitted-cross-domain-policies: none
+x-ratelimit-limit: 90
+x-ratelimit-remaining: 89
+x-ratelimit-reset: 2
+x-request-id: e7c88d9d-bb76-461b-8f2c-0bcdc17321b1
+x-runtime: 0.067770
+x-xss-protection: 0
+CF-Cache-Status: DYNAMIC
+Report-To: {"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=RhZepNpsj0LIfiLS0tRMPYBQMNWhA1P0%2Ftc2a0cpDhDLGEzK%2Bqyb0HzNgF1q7WuIV5zSlVj%2Bsky22kawaQdzDZM9rmSM4C4HNHB77sqfNnszMOyI5YE1d6pTk9uE3fE%3D"}],"group":"cf-nel","max_age":604800}
+NEL: {"success_fraction":0,"report_to":"cf-nel","max_age":604800}
+Server: cloudflare
+CF-RAY: 7955ae74bb711bca-BOM
+Content-Encoding: gzip
+alt-svc: h3=":443"; ma=86400, h3-29=":443"; ma=86400
+
+{
+    "code": 422,
+    "meta": null,
+    "data": [
+        {
+            "field": "email",
+            "message": "can't be blank"
+        },
+        {
+            "field": "name",
+            "message": "can't be blank"
+        },
+        {
+            "field": "gender",
+            "message": "can't be blank, can be male of female"
+        },
+        {
+            "field": "status",
+            "message": "can't be blank"
+        }
+    ]
+}

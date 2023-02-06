@@ -9,6 +9,6 @@ Feature: Validating POST operations
 
   Scenario: Verify post create user Negative by sending empty body
     Given Users call the base URI
-    When User use the "" for the http post method
+    When User use the "postUser_Negative_SendEmptyBody" for the http post method
     Then check the response status as 200 for negative scenario
     And Also check the response for code as 422

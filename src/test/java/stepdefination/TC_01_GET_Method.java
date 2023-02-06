@@ -38,6 +38,8 @@ public class TC_01_GET_Method extends Utils_Class{
 	Response get_users_muliple_query_param;
 	Response post_response;
 	Response create_new_user_positive_response;
+	Response negative_response;
+	Response negative_empty_body_response;
 	JsonPath js;
 	String code;
 	String gender;
@@ -153,8 +155,7 @@ public class TC_01_GET_Method extends Utils_Class{
 		
 		id = user_input.nextInt();
 		
-		if(endpoint.equalsIgnoreCase("getSingleUser")) {
-			
+		if(endpoint.equalsIgnoreCase("getSingleUser")) {			
 		    single_user_response = request.
 		    		when().
 		    		    get(Endpoint.get_Endpoint() + "/" + id);
@@ -398,27 +399,52 @@ public class TC_01_GET_Method extends Utils_Class{
 	}
 	
 	@Then("Also check the response for code as {int}")
-	public void also_check_the_response_for_code_as(Integer int1) {
+	public void also_check_the_response_for_code_as(Integer response_code) {
 		
-		code = json_convertor(create_new_user_positive_response, "code");
+		if(response_code.equals(201)) {
+			
+			code = json_convertor(create_new_user_positive_response, "code");
+			
+			actual_code = Integer.parseInt(code);
 		
-		actual_code = Integer.parseInt(code);
+			assertEquals(actual_code, 201);
+			
+		}else if(response_code.equals(422)){
+			
+			code = json_convertor(negative_empty_body_response, "code");
+			
+			actual_code = Integer.parseInt(code);
 		
-		assertEquals(actual_code, 201);
+			assertEquals(actual_code, 422);
+			
+		}
 		
 	}
 	
 	@When("User use the {string} for the http post method")
-	public void user_use_the_for_the_http_post_method(String string) {
+	public void user_use_the_for_the_http_post_method(String endpoint) {
 		
-		
-		
+		if(endpoint.equalsIgnoreCase("postUser_Negative_SendEmptyBody")) {
+			
+			negative_response = request.
+					when().
+						post(Endpoint.get_Endpoint());
+			
+		}else {
+			
+			System.out.println("No Match found!");
+			
+		}
 	}
 
 	@Then("check the response status as {int} for negative scenario")
 	public void check_the_response_status_as_for_negative_scenario(Integer int1) {
 		
-		
+		negative_empty_body_response = negative_response.
+				then().
+					statusCode(200).
+					extract().
+					response();
 		
 	}
 
