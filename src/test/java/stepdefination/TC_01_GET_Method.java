@@ -362,11 +362,14 @@ public class TC_01_GET_Method extends Utils_Class{
 		
 	}
 
-	@Given("Give the payload for the post request")
-	public void give_the_payload_for_the_post_request() {
+	@Given("Give the payload for the {string} post request")
+	public void give_the_payload_for_the_post_request(String request_Body) {
+		if(request_Body.equalsIgnoreCase("create_new_user_payload")) {
+			
+			request_body = request.
+						body(data.create_new_user_payload());
 		
-		request_body = request.
-					body(data.create_new_user_payload());
+		}
 		
 	}
 	
@@ -447,5 +450,21 @@ public class TC_01_GET_Method extends Utils_Class{
 					response();
 		
 	}
+
+	@Then("Also validate the error messages as {string} for the required fields")
+	public void also_validate_the_error_messages_as_for_the_required_fields(String string) {
+		
+		System.out.println("Pending...");
+		
+	}
+	@Then("Also validate the gender error messages as {string}")
+	public void also_validate_the_gender_error_messages_as(String string) {
+		
+		System.out.println("Pending...");
+		
+	}
+
+
+
 
 }
