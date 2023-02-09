@@ -15,9 +15,9 @@ Feature: Validating POST operations
     
   Scenario: Verify post user negative body has all fields but no value 
   	Given Users call the base URI
-  	And Give the payload for the "postUserBodyWithNullValues" post request
-  	When User use the "" for the http post method
-    Then check the response status as 200 for negative scenario
-		And Also check the response for code as 422
+  	And Give the payload for the "body_with_null_values" post request
+  	When User use the "postUser_Negative_BodyHasAllFiledsButNoValue" for the http post method
+    Then check the response status as 200 for negative scenario of null values in the body
+		And Also check the null values in the body response for code as 422
 		And Also validate the error messages as "can't be blank" for the required fields
 		And Also validate the gender error messages as "can't be blank, can be male of female"

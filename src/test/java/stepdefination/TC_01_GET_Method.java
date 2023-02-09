@@ -21,6 +21,7 @@ public class TC_01_GET_Method extends Utils_Class{
 	
 	RequestSpecification request;
 	RequestSpecification request_body;
+	RequestSpecification null_values_body;
 	static URI_Endpoints Endpoint;
 	Scanner user_input =  new Scanner(System.in);
 	Test_Data data = new Test_Data();
@@ -40,6 +41,8 @@ public class TC_01_GET_Method extends Utils_Class{
 	Response create_new_user_positive_response;
 	Response negative_response;
 	Response negative_empty_body_response;
+	Response null_values_response;
+	Response null_value_body_response;
 	JsonPath js;
 	String code;
 	String gender;
@@ -369,6 +372,15 @@ public class TC_01_GET_Method extends Utils_Class{
 			request_body = request.
 						body(data.create_new_user_payload());
 		
+		}else if(request_Body.equalsIgnoreCase("body_with_null_values")) {
+			
+			null_values_body = request.
+						body(data.body_with_null_values());
+			
+		}else {
+			
+			System.out.println("No Match Found!");
+			
 		}
 		
 	}
@@ -433,9 +445,11 @@ public class TC_01_GET_Method extends Utils_Class{
 					when().
 						post(Endpoint.get_Endpoint());
 			
-		}else {
+		}else if(endpoint.equalsIgnoreCase("postUser_Negative_BodyHasAllFiledsButNoValue")){
 			
-			System.out.println("No Match found!");
+			null_values_response = null_values_body.
+					when().
+						post(Endpoint.get_Endpoint());
 			
 		}
 	}
@@ -448,6 +462,27 @@ public class TC_01_GET_Method extends Utils_Class{
 					statusCode(200).
 					extract().
 					response();
+		
+	}
+	
+	@Then("check the response status as {int} for negative scenario of null values in the body")
+	public void check_the_response_status_as_for_negative_scenario_of_null_values_in_the_body(Integer int1) {
+		
+		null_value_body_response = null_values_response.
+				then().
+					statusCode(200).
+					extract().
+					response();
+	}
+
+	@Then("Also check the null values in the body response for code as {int}")
+	public void also_check_the_null_values_in_the_body_response_for_code_as(Integer int1) {
+		
+		code = json_convertor(null_value_body_response, "code");
+		
+		actual_code = Integer.parseInt(code);
+	
+		assertEquals(actual_code, 422);
 		
 	}
 
