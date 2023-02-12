@@ -12,7 +12,8 @@ public enum URI_Endpoints {
 	postCreateUser_Positive("/public/v2/users"),
 	postUser_Negative_SendEmptyBody("/public-api/users"),
 	postUser_Negative_BodyHasAllFiledsButNoValue("/public-api/users"),
-	postUser_Negative_BodyHasAllFiledsButIncorrectValue("/public/v2/users");
+	postUser_Negative_BodyHasAllFiledsButIncorrectValue("/public/v2/users"),
+	postUser_Negative_BodyHasAllFieldsButIncorrectDataType("/public/v2/users");
 	
 	private String endpoint;
 	

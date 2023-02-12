@@ -20,6 +20,7 @@ public class TC_02_POST_Method extends Utils_Class{
 	RequestSpecification request_body;
 	RequestSpecification null_values_body;
 	RequestSpecification incorrect_values_body;
+	RequestSpecification incorrect_datatype_body;
 	static URI_Endpoints Endpoint;
 	Test_Data data = new Test_Data();
 	Response post_response;
@@ -30,6 +31,8 @@ public class TC_02_POST_Method extends Utils_Class{
 	Response null_value_body_response;
 	Response incorrect_values_response;
 	Response negative_incorrect_value_response;
+	Response incorrect_datatype_response;
+	Response negative_incorrect_datatype_response;
 	int actual_code;
 	String code;
 	JsonPath js;
@@ -59,6 +62,11 @@ public class TC_02_POST_Method extends Utils_Class{
 		}else if(request_Body.equalsIgnoreCase("body_with_incorrect_values")) {
 			
 			incorrect_values_body = request.
+						body(data.body_with_incorrect_values());
+			
+		}else if(request_Body.equalsIgnoreCase("body_with_incorrect_DataType")) {
+			
+			incorrect_datatype_body = request.
 						body(data.body_with_incorrect_values());
 			
 		}
@@ -99,6 +107,12 @@ public class TC_02_POST_Method extends Utils_Class{
 					when().
 						post(Endpoint.get_Endpoint());
 			
+		}else if(endpoint.equalsIgnoreCase("postUser_Negative_BodyHasAllFieldsButIncorrectDataType")){
+			
+			incorrect_datatype_response = incorrect_datatype_body.
+					when().
+						post(Endpoint.get_Endpoint());
+			
 		}
 		
 	}
@@ -133,6 +147,14 @@ public class TC_02_POST_Method extends Utils_Class{
 		}else if(response_body.equalsIgnoreCase("negative_incorrect_value_response")) {
 			
 			negative_incorrect_value_response = incorrect_values_response.
+					then().
+						statusCode(422).
+						extract().
+						response();
+			
+		}else if(response_body.equalsIgnoreCase("negative_incorrect_datatype_response")) {
+			
+			negative_incorrect_datatype_response = incorrect_datatype_response.
 					then().
 						statusCode(422).
 						extract().
@@ -189,6 +211,14 @@ public class TC_02_POST_Method extends Utils_Class{
 		assertEquals(msg, expected_email_error_msg);
 		
 	}
-
 	
+	@Then("Also validate the incorrect datatype response email for error messages as {string}")
+	public void also_validate_the_incorrect_datatype_response_email_for_error_messages_as(String expected_email_error_msg) {
+		
+		msg = json_convertor(negative_incorrect_datatype_response, "[2].message");
+
+		assertEquals(msg, expected_email_error_msg);
+		
+	}
+
 }
