@@ -5,8 +5,8 @@ public class Test_Data {
 	public String create_new_user_payload() {
 		
 		return "{\r\n"
-				+ "    \"name\":\"Jinga\",\r\n"
-				+ "    \"email\":\"jingahagane@cartoonnetwork.com\",\r\n"
+				+ "    \"name\":\"Sanji\",\r\n"
+				+ "    \"email\":\"sanji@onepiece.com\",\r\n"
 				+ "    \"gender\":\"male\",\r\n"
 				+ "    \"status\":\"active\"\r\n"
 				+ "}";
@@ -20,6 +20,17 @@ public class Test_Data {
 				+ "		\"email\":\"\",\r\n"
 				+ "		\"gender\":\"\",\r\n"
 				+ "		\"status\":\"\"\r\n"
+				+ "}";
+		
+	}
+	
+	public String body_with_incorrect_values() {
+		
+		return "{\r\n"
+				+ "    \"name\":\"temp\",\r\n"
+				+ "    \"email\":\"231426\",\r\n"
+				+ "    \"gender\":\"temp1\",\r\n"
+				+ "    \"status\":\"live\"\r\n"
 				+ "}";
 		
 	}

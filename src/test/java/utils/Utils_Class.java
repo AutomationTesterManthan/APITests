@@ -28,13 +28,13 @@ public class Utils_Class {
 		
 			log = new PrintStream(new FileOutputStream("Output-Logs.txt"));
 			
-			requestSpecBuilder = new RequestSpecBuilder().
+				requestSpecBuilder = new RequestSpecBuilder().
 					setBaseUri(get_property("BaseURI")).
 					addFilter(RequestLoggingFilter.logRequestTo(log)).
 					addFilter(ResponseLoggingFilter.logResponseTo(log)).
 					build();
 			
-			return requestSpecBuilder;
+				return requestSpecBuilder;
 			
 		}
 		

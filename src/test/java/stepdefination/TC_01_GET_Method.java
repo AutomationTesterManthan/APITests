@@ -19,12 +19,12 @@ import java.util.Scanner;
 
 public class TC_01_GET_Method extends Utils_Class{
 	
-	RequestSpecification request;
-	RequestSpecification request_body;
-	RequestSpecification null_values_body;
-	static URI_Endpoints Endpoint;
 	Scanner user_input =  new Scanner(System.in);
 	Test_Data data = new Test_Data();
+	static URI_Endpoints Endpoint;
+	
+	RequestSpecification request;
+	
 	Response response;
 	Response query_response;
 	Response gender_query_response;
@@ -37,26 +37,24 @@ public class TC_01_GET_Method extends Utils_Class{
 	Response get_users_with_gender;
 	Response muliple_query_param_response;
 	Response get_users_muliple_query_param;
-	Response post_response;
-	Response create_new_user_positive_response;
-	Response negative_response;
-	Response negative_empty_body_response;
-	Response null_values_response;
-	Response null_value_body_response;
+	
 	JsonPath js;
+	
 	String code;
+	String msg;
 	String gender;
 	String multiple_query_gender;
 	String multiple_query_status;
 	String status;
 	String gender_validation;
 	String status_validation;
-	int actual_code;
-	int page_no;
-	int id;
 	String expected_id;
 	String actual_page;
 	String actual_message;
+	
+	int actual_code;
+	int page_no;
+	int id;
 	
 	@Given("Users call the base URI")
 	public void users_call_the_base_uri() throws Exception {
@@ -364,142 +362,5 @@ public class TC_01_GET_Method extends Utils_Class{
 		}
 		
 	}
-
-	@Given("Give the payload for the {string} post request")
-	public void give_the_payload_for_the_post_request(String request_Body) {
-		if(request_Body.equalsIgnoreCase("create_new_user_payload")) {
-			
-			request_body = request.
-						body(data.create_new_user_payload());
-		
-		}else if(request_Body.equalsIgnoreCase("body_with_null_values")) {
-			
-			null_values_body = request.
-						body(data.body_with_null_values());
-			
-		}else {
-			
-			System.out.println("No Match Found!");
-			
-		}
-		
-	}
-	
-	@When("Use the {string} for the post http method")
-	public void use_the_for_the_http_method(String endpoint) {
-		
-		if(endpoint.equalsIgnoreCase("postCreateUser_Positive")) {
-			
-			post_response = request_body.
-					when().
-						post(Endpoint.get_Endpoint());
-			
-		}else {
-			
-			System.out.println("No Match found!");
-			
-		}
-		
-	}
-	
-	@Then("Check the response status as {int}")
-	public void check_the_response_status_as(Integer int1) {
-		
-		create_new_user_positive_response = post_response.
-				then().
-					statusCode(200).
-					extract().
-					response();
-		
-	}
-	
-	@Then("Also check the response for code as {int}")
-	public void also_check_the_response_for_code_as(Integer response_code) {
-		
-		if(response_code.equals(201)) {
-			
-			code = json_convertor(create_new_user_positive_response, "code");
-			
-			actual_code = Integer.parseInt(code);
-		
-			assertEquals(actual_code, 201);
-			
-		}else if(response_code.equals(422)){
-			
-			code = json_convertor(negative_empty_body_response, "code");
-			
-			actual_code = Integer.parseInt(code);
-		
-			assertEquals(actual_code, 422);
-			
-		}
-		
-	}
-	
-	@When("User use the {string} for the http post method")
-	public void user_use_the_for_the_http_post_method(String endpoint) {
-		
-		if(endpoint.equalsIgnoreCase("postUser_Negative_SendEmptyBody")) {
-			
-			negative_response = request.
-					when().
-						post(Endpoint.get_Endpoint());
-			
-		}else if(endpoint.equalsIgnoreCase("postUser_Negative_BodyHasAllFiledsButNoValue")){
-			
-			null_values_response = null_values_body.
-					when().
-						post(Endpoint.get_Endpoint());
-			
-		}
-	}
-
-	@Then("check the response status as {int} for negative scenario")
-	public void check_the_response_status_as_for_negative_scenario(Integer int1) {
-		
-		negative_empty_body_response = negative_response.
-				then().
-					statusCode(200).
-					extract().
-					response();
-		
-	}
-	
-	@Then("check the response status as {int} for negative scenario of null values in the body")
-	public void check_the_response_status_as_for_negative_scenario_of_null_values_in_the_body(Integer int1) {
-		
-		null_value_body_response = null_values_response.
-				then().
-					statusCode(200).
-					extract().
-					response();
-	}
-
-	@Then("Also check the null values in the body response for code as {int}")
-	public void also_check_the_null_values_in_the_body_response_for_code_as(Integer int1) {
-		
-		code = json_convertor(null_value_body_response, "code");
-		
-		actual_code = Integer.parseInt(code);
-	
-		assertEquals(actual_code, 422);
-		
-	}
-
-	@Then("Also validate the error messages as {string} for the required fields")
-	public void also_validate_the_error_messages_as_for_the_required_fields(String string) {
-		
-		System.out.println("Pending...");
-		
-	}
-	@Then("Also validate the gender error messages as {string}")
-	public void also_validate_the_gender_error_messages_as(String string) {
-		
-		System.out.println("Pending...");
-		
-	}
-
-
-
 
 }
