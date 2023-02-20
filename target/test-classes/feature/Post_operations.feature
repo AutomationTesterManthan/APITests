@@ -27,7 +27,7 @@ Feature: Validating POST operations
     When User use the "postUser_Negative_BodyHasAllFiledsButIncorrectValue" for the http post method
     Then Check the response "negative_incorrect_value_response" for status as 422
     And Also validate the email error messages as "is invalid"
-    
+
   Scenario: Verify post user negative body has all fields but incorrect data type
     Given Users call the base URI for post request
     And Give the payload for the "body_with_incorrect_DataType" post request

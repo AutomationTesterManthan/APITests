@@ -7,7 +7,7 @@ import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
 
-@CucumberOptions(features="src/test/java/feature/Post_operations.feature", 
+@CucumberOptions(features="src/test/java/feature/Put_operations.feature", 
                  glue= {"stepdefination"},
                  plugin= {"pretty",
                 		 "json:target/cucumber.json"})

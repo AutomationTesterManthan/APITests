@@ -45,5 +45,15 @@ public class Test_Data {
 				+ "}";
 		
 	}
+	
+	public String update_user_data() {
+		
+		return "{\r\n"
+				+ "    \"gender\": \"male\",\r\n"
+				+ "    \"name\": \"Kid\",\r\n"
+				+ "    \"email\": \"onepiece.kid@gmail.com\"\r\n"
+				+ "}";
+		
+	}
 
 }

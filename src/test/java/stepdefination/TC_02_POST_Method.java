@@ -16,8 +16,7 @@ import utils.Utils_Class;
 
 public class TC_02_POST_Method extends Utils_Class{
 	
-	RequestSpecification request;
-	RequestSpecification request_body;
+	
 	RequestSpecification null_values_body;
 	RequestSpecification incorrect_values_body;
 	RequestSpecification incorrect_datatype_body;
@@ -49,6 +48,7 @@ public class TC_02_POST_Method extends Utils_Class{
 	}
 	@Given("Give the payload for the {string} post request")
 	public void give_the_payload_for_the_post_request(String request_Body) {
+		
 		if(request_Body.equalsIgnoreCase("create_new_user_payload")) {
 			
 			request_body = request.

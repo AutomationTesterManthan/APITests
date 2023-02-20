@@ -13,7 +13,10 @@ public enum URI_Endpoints {
 	postUser_Negative_SendEmptyBody("/public-api/users"),
 	postUser_Negative_BodyHasAllFiledsButNoValue("/public-api/users"),
 	postUser_Negative_BodyHasAllFiledsButIncorrectValue("/public/v2/users"),
-	postUser_Negative_BodyHasAllFieldsButIncorrectDataType("/public/v2/users");
+	postUser_Negative_BodyHasAllFieldsButIncorrectDataType("/public/v2/users"),
+	
+	putUpdateExistingUser_Positive("/public-api/users"),
+	putUpdateExistingUser_Negative_TryToUpdateUserWhichIsNotPresent("/public-api/users");
 	
 	private String endpoint;
 	

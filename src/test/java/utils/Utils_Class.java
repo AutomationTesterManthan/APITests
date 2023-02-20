@@ -15,6 +15,9 @@ import io.restassured.specification.RequestSpecification;
 
 public class Utils_Class {
 	
+	public RequestSpecification request;
+	public RequestSpecification request_body;
+	
 	RequestSpecification requestSpecBuilder;
 	PrintStream log;
 	Properties property;
