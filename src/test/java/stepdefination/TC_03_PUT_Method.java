@@ -1,7 +1,7 @@
 package stepdefination;
 
 import static io.restassured.RestAssured.given;
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import java.util.Scanner;
 
@@ -19,13 +19,20 @@ public class TC_03_PUT_Method extends Utils_Class{
 	Test_Data data = new Test_Data();
 	static URI_Endpoints Endpoint;
 	Scanner user_input =  new Scanner(System.in);
+	
 	Response put_response;
 	Response updated_user_response;
 	Response verify_single_user_response;
 	Response user_response;
+	Response updated_user_with_incorrect_id_response;
+	Response updated_user_with_incorrect_values_response;
+	
 	String actual_email;
 	String expected_email;
+	String actual_message;
 	
+	String code;
+	int actual_code;
 	int id;
 	
 	@Given("Users call the base URI for put request")
@@ -46,6 +53,11 @@ public class TC_03_PUT_Method extends Utils_Class{
 			request_body = request.
 					body(data.update_user_data());
 			
+		}else if(request_Body.equalsIgnoreCase("update_incorrect_user_data")) {
+			
+			request_body = request.
+					body(data.update_incorrect_user_data());
+			
 		}
 		
 	}
@@ -60,6 +72,18 @@ public class TC_03_PUT_Method extends Utils_Class{
 		id = user_input.nextInt();
 		
 		if(endpoint.equalsIgnoreCase("putUpdateExistingUser_Positive")) {
+			
+			put_response = request_body.
+					when().
+						put(Endpoint.get_Endpoint() + "/" + id);
+			
+		}else if(endpoint.equalsIgnoreCase("putUpdateExistingUser_Negative_TryToUpdateUserWhichIsNotPresent")) {
+			
+			put_response = request_body.
+					when().
+						put(Endpoint.get_Endpoint() + "/" + id);
+			
+		}else if(endpoint.equalsIgnoreCase("putUpdateExistingUser_Negative_SendIncorrectValuesToTheField")) {
 			
 			put_response = request_body.
 					when().
@@ -80,9 +104,25 @@ public class TC_03_PUT_Method extends Utils_Class{
 						extract().
 						response();
 			
+			expected_email = json_convertor(updated_user_response,"data.email");
+			
+		}else if(response_body.equalsIgnoreCase("updated_user_with_incorrect_id_response")) {
+			
+			updated_user_with_incorrect_id_response = put_response.
+					then().
+						statusCode(200).
+						extract().
+						response();
+			
+		}else if(response_body.equalsIgnoreCase("updated_user_with_incorrect_values_response")) {
+			
+			updated_user_with_incorrect_values_response = put_response.
+					then().
+						statusCode(404).
+						extract().
+						response();
+			
 		}
-		
-		expected_email = json_convertor(updated_user_response,"data.email");
 		
 	}
 	
@@ -120,6 +160,36 @@ public class TC_03_PUT_Method extends Utils_Class{
 		actual_email = json_convertor(user_response,"data.email");
 		
 		assertEquals(actual_email, expected_email);
+		
+	}
+	
+	@Then("Check the status code as {int}")
+	public void check_the_status_code_as(Integer expected_code) {
+		
+		code = json_convertor(updated_user_with_incorrect_id_response,"code");
+		
+		actual_code = Integer.parseInt(code);
+		
+		assertEquals(actual_code, 404);
+		
+	}
+
+	@Then("Also verify the error as {string} in the response {string}")
+	public void also_verify_the_error_as_in_the_response(String expected_message, String response) {
+		
+		if(response.equalsIgnoreCase("updated_user_with_incorrect_id_response")) {
+			
+			actual_message = json_convertor(updated_user_with_incorrect_id_response,"data.message");
+			
+			assertEquals(actual_message, expected_message);
+			
+		}else if(response.equalsIgnoreCase("updated_user_with_incorrect_values_response")) {
+			
+			actual_message = json_convertor(updated_user_with_incorrect_values_response,"message");
+			
+			assertEquals(actual_message, expected_message);
+			
+		}
 		
 	}
 

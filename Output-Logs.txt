@@ -1,0 +1,75 @@
+Request method:	DELETE
+Request URI:	https://gorest.co.in/public/v2/users/620231
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+HTTP/1.1 204 No Content
+Date: Sat, 25 Feb 2023 10:02:55 GMT
+Connection: keep-alive
+Cache-Control: no-cache
+referrer-policy: strict-origin-when-cross-origin
+vary: Origin
+x-content-type-options: nosniff
+x-download-options: noopen
+x-frame-options: SAMEORIGIN
+x-permitted-cross-domain-policies: none
+x-ratelimit-limit: 90
+x-ratelimit-remaining: 89
+x-ratelimit-reset: 1
+x-request-id: 00f02f18-2b94-44cf-aa0c-55796a81d5fc
+x-runtime: 0.167793
+x-xss-protection: 0
+CF-Cache-Status: DYNAMIC
+Report-To: {"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=ZMh6zJq7ykYz%2Fcehu5bwPxHKeKIuOczbjzNIHN8h9KX48NPxVKtQGA6aHY9AQ1hUouyT5TmJ2Lm1mg5X5ajNfYUiJ5gqN2mMkdwKzwGyYs398ePaHKypotP5xoAKcGs%3D"}],"group":"cf-nel","max_age":604800}
+NEL: {"success_fraction":0,"report_to":"cf-nel","max_age":604800}
+Server: cloudflare
+CF-RAY: 79ef9bae8e6985b1-BOM
+alt-svc: h3=":443"; ma=86400, h3-29=":443"; ma=86400
+Request method:	DELETE
+Request URI:	https://gorest.co.in/public/v2/users/620231
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Content-Type=application/json
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+HTTP/1.1 404 Not Found
+Date: Sat, 25 Feb 2023 10:03:01 GMT
+Content-Type: application/json; charset=utf-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+Cache-Control: no-cache
+referrer-policy: strict-origin-when-cross-origin
+vary: Origin
+x-content-type-options: nosniff
+x-download-options: noopen
+x-frame-options: SAMEORIGIN
+x-permitted-cross-domain-policies: none
+x-ratelimit-limit: 90
+x-ratelimit-remaining: 89
+x-ratelimit-reset: 1
+x-request-id: 75486a2e-2d25-4a36-8303-6b0c862cee7b
+x-runtime: 0.096076
+x-xss-protection: 0
+CF-Cache-Status: DYNAMIC
+Report-To: {"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=sNhSAaD5Kt8qfOhQ58pIO9W99cqm64RPuYzZq99F9HE9DorTdRo6BGOM4rOZjNNDxWqUJwcaQNful6kMDUvg9LW6eAvJwL6Ri%2FPbX92hkqcH8aqjhQCK5HYHRPz0S24%3D"}],"group":"cf-nel","max_age":604800}
+NEL: {"success_fraction":0,"report_to":"cf-nel","max_age":604800}
+Server: cloudflare
+CF-RAY: 79ef9bd68a1f6ed7-BOM
+Content-Encoding: gzip
+alt-svc: h3=":443"; ma=86400, h3-29=":443"; ma=86400
+
+{
+    "message": "Resource not found"
+}

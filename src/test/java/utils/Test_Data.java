@@ -55,5 +55,22 @@ public class Test_Data {
 				+ "}";
 		
 	}
+	
+	public String update_incorrect_user_data() {
+		
+		return "{\r\n"
+				+ "    \"gender\": 435684,\r\n"
+				+ "    \"email\": \"@#$^&*\"\r\n"
+				+ "}";
+		
+	}
+	
+	public String update_gender() {
+		
+		return "{\r\n"
+				+ "    \"gender\": \"male\"\r\n"
+				+ "}";
+		
+	}
 
 }

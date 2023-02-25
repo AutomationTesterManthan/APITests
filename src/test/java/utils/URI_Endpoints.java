@@ -16,7 +16,12 @@ public enum URI_Endpoints {
 	postUser_Negative_BodyHasAllFieldsButIncorrectDataType("/public/v2/users"),
 	
 	putUpdateExistingUser_Positive("/public-api/users"),
-	putUpdateExistingUser_Negative_TryToUpdateUserWhichIsNotPresent("/public-api/users");
+	putUpdateExistingUser_Negative_TryToUpdateUserWhichIsNotPresent("/public-api/users"),
+	putUpdateExistingUser_Negative_SendIncorrectValuesToTheField("/public/v2/users"),
+	
+	patch_update_gender("/public-api/users"),
+	
+	deleteSingleUser("/public/v2/users");
 	
 	private String endpoint;
 	
