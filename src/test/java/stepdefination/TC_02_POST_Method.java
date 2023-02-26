@@ -8,34 +8,15 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
-import io.restassured.response.Response;
-import io.restassured.specification.RequestSpecification;
 import utils.Test_Data;
 import utils.URI_Endpoints;
 import utils.Utils_Class;
 
 public class TC_02_POST_Method extends Utils_Class{
 	
-	
-	RequestSpecification null_values_body;
-	RequestSpecification incorrect_values_body;
-	RequestSpecification incorrect_datatype_body;
 	static URI_Endpoints Endpoint;
 	Test_Data data = new Test_Data();
-	Response post_response;
-	Response create_new_user_positive_response;
-	Response negative_response;
-	Response negative_empty_body_response;
-	Response null_values_response;
-	Response null_value_body_response;
-	Response incorrect_values_response;
-	Response negative_incorrect_value_response;
-	Response incorrect_datatype_response;
-	Response negative_incorrect_datatype_response;
-	int actual_code;
-	String code;
 	JsonPath js;
-	String msg;;
 	
 	@Given("Users call the base URI for post request")
 	public void users_call_the_base_uri_for_post_request() throws Exception {

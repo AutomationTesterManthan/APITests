@@ -9,7 +9,6 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.http.ContentType;
-import io.restassured.response.Response;
 import utils.URI_Endpoints;
 import utils.Utils_Class;
 
@@ -17,13 +16,6 @@ public class TC_05_DELETE_Method extends Utils_Class{
 	
 	static URI_Endpoints Endpoint;
 	Scanner user_input =  new Scanner(System.in);
-	
-	Response delete_response;
-	Response delete_single_user_response;
-	Response verify_delete_user_response;
-	
-	String actual_message;
-	int id;
 	
 	@Given("Users call the base URI for delete request")
 	public void users_call_the_base_uri_for_delete_request() throws Exception {

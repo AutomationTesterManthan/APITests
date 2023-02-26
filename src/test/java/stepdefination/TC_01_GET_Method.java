@@ -6,8 +6,6 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
-import io.restassured.response.Response;
-import io.restassured.specification.RequestSpecification;
 import utils.Test_Data;
 import utils.URI_Endpoints;
 import utils.Utils_Class;
@@ -23,38 +21,7 @@ public class TC_01_GET_Method extends Utils_Class{
 	Test_Data data = new Test_Data();
 	static URI_Endpoints Endpoint;
 	
-	RequestSpecification request;
-	
-	Response response;
-	Response query_response;
-	Response gender_query_response;
-	Response single_user_response;
-	Response incorrect_user_response;
-	Response get_all_users_response;
-	Response get_users_with_page_no_response;
-	Response get_single_user;
-	Response get_incorrect_user;
-	Response get_users_with_gender;
-	Response muliple_query_param_response;
-	Response get_users_muliple_query_param;
-	
 	JsonPath js;
-	
-	String code;
-	String msg;
-	String gender;
-	String multiple_query_gender;
-	String multiple_query_status;
-	String status;
-	String gender_validation;
-	String status_validation;
-	String expected_id;
-	String actual_page;
-	String actual_message;
-	
-	int actual_code;
-	int page_no;
-	int id;
 	
 	@Given("Users call the base URI")
 	public void users_call_the_base_uri() throws Exception {

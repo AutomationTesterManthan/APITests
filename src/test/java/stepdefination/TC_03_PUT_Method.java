@@ -9,7 +9,6 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.http.ContentType;
-import io.restassured.response.Response;
 import utils.Test_Data;
 import utils.URI_Endpoints;
 import utils.Utils_Class;
@@ -19,21 +18,6 @@ public class TC_03_PUT_Method extends Utils_Class{
 	Test_Data data = new Test_Data();
 	static URI_Endpoints Endpoint;
 	Scanner user_input =  new Scanner(System.in);
-	
-	Response put_response;
-	Response updated_user_response;
-	Response verify_single_user_response;
-	Response user_response;
-	Response updated_user_with_incorrect_id_response;
-	Response updated_user_with_incorrect_values_response;
-	
-	String actual_email;
-	String expected_email;
-	String actual_message;
-	
-	String code;
-	int actual_code;
-	int id;
 	
 	@Given("Users call the base URI for put request")
 	public void users_call_the_base_uri_for_put_request() throws Exception {

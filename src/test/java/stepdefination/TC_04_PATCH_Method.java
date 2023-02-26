@@ -8,7 +8,6 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.http.ContentType;
-import io.restassured.response.Response;
 import utils.Test_Data;
 import utils.URI_Endpoints;
 import utils.Utils_Class;
@@ -18,15 +17,6 @@ public class TC_04_PATCH_Method extends Utils_Class{
 	Test_Data data = new Test_Data();
 	static URI_Endpoints Endpoint;
 	Scanner user_input =  new Scanner(System.in);
-	
-	Response patch_response;
-	Response updated_user_gender_response;
-	Response get_patched_response;
-	Response user_response;
-
-	String expected_gender;
-	String actual_gender;
-	int id;
 	
 	@Given("Users call the base URI for patch request")
 	public void users_call_the_base_uri_for_patch_request() throws Exception {
